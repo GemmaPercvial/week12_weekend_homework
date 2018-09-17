@@ -17,6 +17,8 @@ BeersListView.prototype.render = function(){
   this.data.forEach((beer) => {
     const beerView = new BeerView(beer, container)
     beerView.render();
+    beerView.renderList();
+    beerView.renderImage();
   });
 }
 

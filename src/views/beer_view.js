@@ -5,7 +5,6 @@ const BeerView = function(beer, container) {
 
 BeerView.prototype.render = function() {
   const beerDiv = document.createElement('div');
-
   const beerName = document.createElement('h3');
   beerName.textContent = this.beer.name;
 
@@ -13,7 +12,7 @@ BeerView.prototype.render = function() {
   this.container.appendChild(beerDiv);
 }
 
-BeerView.prototype.renderList = function(container){
+BeerView.prototype.renderList = function(){
   const listDetails = document.createElement("ul");
 
   const tagline = document.createElement("li");
@@ -21,10 +20,16 @@ BeerView.prototype.renderList = function(container){
   listDetails.appendChild(tagline);
 
   const description = document.createElement("li");
-  description.textContent = `Region: ${this.beer.description}`;
+  description.textContent = `Description: ${this.beer.description}`;
   listDetails.appendChild(description);
 
   this.container.appendChild(listDetails);
+}
+
+BeerView.prototype.renderImage = function(){
+  const image = document.createElement('img');
+  image.src = this.beer.image_url;
+  this.container.appendChild(image);
 }
 
 BeerView.prototype.clearBeer = function () {
